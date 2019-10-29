@@ -18,10 +18,10 @@ router.get('/:id', (req, res) => {
           .then(posts => {
                const [post] = posts;
                console.log(post);
-               if (post.length) {
+               if (post) {
                     res.status(200).json(post);
                } else {
-                    res.status(404).json({error: `This post id ${id} does not exist`})
+                    res.status(404).json({error: `This post id:${id} does not exist`})
                }
           });
 });
