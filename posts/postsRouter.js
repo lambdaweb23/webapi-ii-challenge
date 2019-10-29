@@ -15,8 +15,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
      const { id } = req.params;
      db.findById(id)
-          .then(posts => {
-               const [post] = posts;
+          .then(([post]) => {
                console.log(post);
                if (post) {
                     res.status(200).json(post);
