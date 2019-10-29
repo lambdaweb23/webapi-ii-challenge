@@ -25,13 +25,14 @@ router.get('/:id', (req, res) => {
           });
 });
 
-router.post('/:id', (req, res) => {
+router.post('/', (req, res) => {
      const { title, contents } = req.body;
      if (!title || !contents) {
-          res.status(200).json({ error: 'Please provide title and contents for the post.'});
+          res.status(400).json({ error: 'Please provide title and contents for the post.'});
      } else {
-
+          db.insert({title, contents})
+               .then(id => res.status(200).json(id));
      }
-})
+});
 
 module.exports = router;
