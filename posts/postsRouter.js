@@ -25,4 +25,13 @@ router.get('/:id', (req, res) => {
           });
 });
 
+router.post('/:id', (req, res) => {
+     const { title, contents } = req.body;
+     if (!title || !contents) {
+          res.status(200).json({ error: 'Please provide title and contents for the post.'});
+     } else {
+
+     }
+})
+
 module.exports = router;
